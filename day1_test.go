@@ -73,26 +73,6 @@ func TestReturnsSimilarityForALongerList(t *testing.T) {
 	then.AssertThat(t, totalDistance, is.EqualTo(exptectedTotalSimilarity))
 }
 
-func CalculateSimilarity(input []string) int {
-
-	total := 0
-	left, right, _ := SortLocations(input)
-	var similarityScore []int
-	for _, leftValue := range left {
-		score := 0
-		for _, rightValue := range right {
-			if leftValue == rightValue {
-				score++
-			}
-		}
-		similarityScore = append(similarityScore, leftValue*score)
-	}
-	for _, value := range similarityScore {
-		total += value
-	}
-	return total
-}
-
 func TestReadInputFromFile(t *testing.T) {
 
 	var input []string

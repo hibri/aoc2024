@@ -39,3 +39,25 @@ func CalculateTotalDistance(input []string) int {
 
 	return total
 }
+
+func CalculateSimilarity(input []string) int {
+
+	total := 0
+	left, right, _ := SortLocations(input)
+	var similarityScore []int
+	for _, leftValue := range left {
+		score := 0
+		for _, rightValue := range right {
+			if leftValue == rightValue {
+				score++
+			} else if rightValue > leftValue {
+				break //break the innerloop, because lists are sorted, we don't need to go further
+			}
+		}
+		similarityScore = append(similarityScore, leftValue*score)
+	}
+	for _, value := range similarityScore {
+		total += value
+	}
+	return total
+}
