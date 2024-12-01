@@ -11,7 +11,7 @@ func SortLocations(input []string) ([]int, []int, []int) {
 	var right []int
 	var diffs []int
 	for index, value := range input {
-		var splitString = strings.Split(value, " ")
+		var splitString = strings.Split(value, "   ")
 		left = append(left, 0)
 		right = append(right, 0)
 		left[index], _ = strconv.Atoi(splitString[0])
