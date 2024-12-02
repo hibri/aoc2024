@@ -1,8 +1,11 @@
 package aoc2024
 
 import (
+	"bufio"
 	"github.com/corbym/gocrest/is"
 	"github.com/corbym/gocrest/then"
+	"io"
+	"os"
 	"strconv"
 	"strings"
 	"testing"
@@ -96,11 +99,73 @@ func TestShouldBeUnSafeWhenLevelsIncreaseAndDecrease(t *testing.T) {
 
 	then.AssertThat(t, isSafe, is.EqualTo(false))
 }
+
+func TestShouldBeUnSafeWhenLevelsDontIncreaseOrDecrease(t *testing.T) {
+
+	reportLine := "8 6 4 4 1"
+
+	_, isSafe := ReadReport(reportLine)
+
+	then.AssertThat(t, isSafe, is.EqualTo(false))
+}
+
+func TestShouldBeSafeWhenLevelsIncreased(t *testing.T) {
+
+	reportLine := "1 3 6 7 9"
+
+	_, isSafe := ReadReport(reportLine)
+
+	then.AssertThat(t, isSafe, is.EqualTo(true))
+}
+
+func TestShouldBeSafeWhenSecondLevelsRemoved(t *testing.T) {
+
+	reportLine := "1 2 4 5"
+
+	_, isSafe := ReadReport(reportLine)
+
+	then.AssertThat(t, isSafe, is.EqualTo(true))
+}
+
+func TestShouldBeSafeWhenThirdLevelIsRemoved(t *testing.T) {
+
+	reportLine := "8 6 4 1"
+
+	_, isSafe := ReadReport(reportLine)
+
+	then.AssertThat(t, isSafe, is.EqualTo(true))
+}
+
+func TestReadDay2InputFromFile(t *testing.T) {
+
+	file, _ := os.Open("./day2_input.txt")
+	lineScanner := bufio.NewReader(file)
+	safeReports := 0
+	unsafeReports := 0
+	for {
+		line, err := lineScanner.ReadString('\n')
+		if err == io.EOF {
+			break
+		}
+		_, safe := ReadReport(strings.TrimSpace(line))
+		if safe {
+			safeReports++
+		} else {
+			unsafeReports++
+		}
+
+	}
+	then.AssertThat(t, safeReports, is.EqualTo(0))
+	then.AssertThat(t, unsafeReports, is.EqualTo(0))
+}
+
 func ReadReport(input string) ([]int, bool) {
 
 	var levels []int
 	var rawLevels = strings.Split(input, " ")
 	var isSafe = false
+	isIncrease := false
+	isDecrease := false
 
 	for index, value := range rawLevels {
 		levels = append(levels, 0)
@@ -109,17 +174,27 @@ func ReadReport(input string) ([]int, bool) {
 	for index := 0; index < len(levels)-1; index++ {
 		current := levels[index]
 		next := levels[index+1]
+
+		if next-current > 0 {
+			isIncrease = true
+		} else if next-current < 0 {
+			isDecrease = true
+		} else if next-current == 0 {
+			isIncrease = false
+			isDecrease = false
+		}
+
 		if isSafeDiff(current, next) {
 			isSafe = true
-			safeDir = true
 
 		} else {
 			isSafe = false
-			unSafeDir = true
+			break
 
 		}
 
 	}
+	isSafe = isSafe && ((isIncrease || isDecrease) && !(isIncrease && isDecrease) && !(!isDecrease && !isIncrease))
 
 	return levels, isSafe
 }

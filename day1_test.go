@@ -88,6 +88,6 @@ func TestReadInputFromFile(t *testing.T) {
 	}
 	totalDistance := CalculateTotalDistance(input)
 	totalSimilarity := CalculateSimilarity(input)
-	then.AssertThat(t, totalDistance, is.EqualTo(0))
-	then.AssertThat(t, totalSimilarity, is.EqualTo(0))
+	then.AssertThat(t, totalDistance, is.EqualTo(2176849))
+	then.AssertThat(t, totalSimilarity, is.EqualTo(23384288))
 }
