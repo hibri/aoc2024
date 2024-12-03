@@ -6,7 +6,6 @@ import (
 	"github.com/corbym/gocrest/then"
 	"io"
 	"os"
-	"strconv"
 	"strings"
 	"testing"
 )
@@ -120,28 +119,33 @@ func TestShouldBeSafeWhenLevelsIncreased(t *testing.T) {
 
 func TestShouldBeSafeWhenSecondLevelsRemoved(t *testing.T) {
 
-	reportLine := "1 2 4 5"
+	reportLine := "1 3 2 4 5"
 
-	_, isSafe := ReadReport(reportLine)
+	report, isSafe := ReadReport(reportLine)
+
+	_, isSafe = ReCheckReport(report)
 
 	then.AssertThat(t, isSafe, is.EqualTo(true))
 }
 
 func TestShouldBeSafeWhenThirdLevelIsRemoved(t *testing.T) {
 
-	reportLine := "8 6 4 1"
+	reportLine := "9 7 6 2 1"
 
-	_, isSafe := ReadReport(reportLine)
+	report, isSafe := ReadReport(reportLine)
+
+	_, isSafe = ReCheckReport(report)
 
 	then.AssertThat(t, isSafe, is.EqualTo(true))
 }
-func TestShouldBeUnSafeWhenAnyLevelIsRemoved(t *testing.T) {
+func TestShouldBeSafeWhenAnyLevelIsRemoved(t *testing.T) {
 
-	reportLine := "9 7 2 1"
+	reportLine := "15 18 20 21 23 25 28 32"
 
-	_, isSafe := ReadReport(reportLine)
+	report, isSafe := ReadReport(reportLine)
+	_, isSafe = ReCheckReport(report)
 
-	then.AssertThat(t, isSafe, is.EqualTo(false))
+	then.AssertThat(t, isSafe, is.EqualTo(true))
 }
 
 func TestReadDay2InputFromFile(t *testing.T) {
@@ -163,65 +167,36 @@ func TestReadDay2InputFromFile(t *testing.T) {
 		}
 
 	}
-	then.AssertThat(t, safeReports, is.EqualTo(0))
-	then.AssertThat(t, unsafeReports, is.EqualTo(0))
+	_ = file.Close()
+	then.AssertThat(t, safeReports, is.EqualTo(510))
+	then.AssertThat(t, unsafeReports, is.EqualTo(490))
 }
 
-func ReadReport(input string) ([]int, bool) {
+func TestReadDay2InputWithDampningFromFile(t *testing.T) {
 
-	var levels []int
-	var changes []int
-	var rawLevels = strings.Split(input, " ")
-	var isSafe = false
-	isIncrease := false
-	isDecrease := false
-	badLevels := 0
-
-	for index, value := range rawLevels {
-		levels = append(levels, 0)
-		levels[index], _ = strconv.Atoi(value)
-	}
-	for index := 0; index < len(levels)-1; index++ {
-		current := levels[index]
-		next := levels[index+1]
-		changes = append(changes, 0)
-		diff := diff(next, current)
-		if diff > 0 {
-			isIncrease = true
-		} else if diff < 0 {
-			isDecrease = true
-		} else if diff == 0 {
-			isIncrease = false
-			isDecrease = false
-			badLevels++
-		}
-
-		changes[index] = diff
-		if isSafeDiff(diff) {
-			isSafe = true
-
-		} else {
-			isSafe = false
-			badLevels++
+	file, _ := os.Open("./day2_input.txt")
+	lineScanner := bufio.NewReader(file)
+	safeReports := 0
+	unsafeReports := 0
+	for {
+		line, err := lineScanner.ReadString('\n')
+		if err == io.EOF {
 			break
+		}
+		report, safe := ReadReport(strings.TrimSpace(line))
+		if safe {
+			safeReports++
+		} else {
+			_, safe := ReCheckReport(report)
+			if safe {
+				safeReports++
+			}
+			unsafeReports++
 
 		}
 
 	}
-	isSafe = isSafe && ((isIncrease || isDecrease) && !(isIncrease && isDecrease) && !(!isDecrease && !isIncrease))
-
-	return levels, isSafe
-}
-
-
-func isSafeDiff(diff int) bool {
-
-	if diff < 0 {
-		diff = diff * -1
-	}
-	return diff == 1 || diff == 2 || diff == 3
-}
-
-func diff(next int, current int) int {
-	return next - current
+	_ = file.Close()
+	then.AssertThat(t, safeReports, is.EqualTo(553))
+	then.AssertThat(t, unsafeReports, is.EqualTo(490))
 }
