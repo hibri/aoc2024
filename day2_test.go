@@ -130,7 +130,7 @@ func TestShouldBeSafeWhenSecondLevelsRemoved(t *testing.T) {
 
 func TestShouldBeSafeWhenThirdLevelIsRemoved(t *testing.T) {
 
-	reportLine := "9 7 6 2 1"
+	reportLine := "8 6 4 4 1"
 
 	report, isSafe := ReadReport(reportLine)
 
