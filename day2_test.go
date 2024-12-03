@@ -135,6 +135,14 @@ func TestShouldBeSafeWhenThirdLevelIsRemoved(t *testing.T) {
 
 	then.AssertThat(t, isSafe, is.EqualTo(true))
 }
+func TestShouldBeUnSafeWhenAnyLevelIsRemoved(t *testing.T) {
+
+	reportLine := "9 7 2 1"
+
+	_, isSafe := ReadReport(reportLine)
+
+	then.AssertThat(t, isSafe, is.EqualTo(false))
+}
 
 func TestReadDay2InputFromFile(t *testing.T) {
 
@@ -162,10 +170,12 @@ func TestReadDay2InputFromFile(t *testing.T) {
 func ReadReport(input string) ([]int, bool) {
 
 	var levels []int
+	var changes []int
 	var rawLevels = strings.Split(input, " ")
 	var isSafe = false
 	isIncrease := false
 	isDecrease := false
+	badLevels := 0
 
 	for index, value := range rawLevels {
 		levels = append(levels, 0)
@@ -174,21 +184,25 @@ func ReadReport(input string) ([]int, bool) {
 	for index := 0; index < len(levels)-1; index++ {
 		current := levels[index]
 		next := levels[index+1]
-
-		if next-current > 0 {
+		changes = append(changes, 0)
+		diff := diff(next, current)
+		if diff > 0 {
 			isIncrease = true
-		} else if next-current < 0 {
+		} else if diff < 0 {
 			isDecrease = true
-		} else if next-current == 0 {
+		} else if diff == 0 {
 			isIncrease = false
 			isDecrease = false
+			badLevels++
 		}
 
-		if isSafeDiff(current, next) {
+		changes[index] = diff
+		if isSafeDiff(diff) {
 			isSafe = true
 
 		} else {
 			isSafe = false
+			badLevels++
 			break
 
 		}
@@ -199,11 +213,15 @@ func ReadReport(input string) ([]int, bool) {
 	return levels, isSafe
 }
 
-func isSafeDiff(current int, next int) bool {
 
-	diff := current - next
+func isSafeDiff(diff int) bool {
+
 	if diff < 0 {
-		diff = -diff
+		diff = diff * -1
 	}
 	return diff == 1 || diff == 2 || diff == 3
+}
+
+func diff(next int, current int) int {
+	return next - current
 }
