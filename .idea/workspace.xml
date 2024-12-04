@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61dd0f1d-2350-4bb9-a7d4-53b826b253ff" name="Changes" comment="organise code">
-      <change afterPath="$PROJECT_DIR$/day3/day3_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="61dd0f1d-2350-4bb9-a7d4-53b826b253ff" name="Changes" comment="add day3 code so for" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +20,9 @@
   <component name="GOROOT" url="file:///usr/local/opt/go/libexec" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -171,7 +171,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix test" />
     <MESSAGE value="organise code" />
-    <option name="LAST_COMMIT_MESSAGE" value="organise code" />
+    <MESSAGE value="add day3 code so for" />
+    <option name="LAST_COMMIT_MESSAGE" value="add day3 code so for" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
