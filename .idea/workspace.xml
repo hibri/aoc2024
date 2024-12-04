@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61dd0f1d-2350-4bb9-a7d4-53b826b253ff" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="61dd0f1d-2350-4bb9-a7d4-53b826b253ff" name="Changes" comment="fix test">
+      <change beforePath="$PROJECT_DIR$/day1.go" beforeDir="false" afterPath="$PROJECT_DIR$/day1/day1.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day1_input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/day1/day1_input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day1_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/day1/day1_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day2.go" beforeDir="false" afterPath="$PROJECT_DIR$/day2/day2.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day2_input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/day2/day2_input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day2_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/day2/day2_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,12 +47,13 @@
     "Go Test.TestShouldBeUnSafeWhenLevelsDecreasingForAReportLineByMoreThan3 in aoc2024.executor": "Debug",
     "Go Test.TestShouldBeUnSafeWhenLevelsIncreaseAndDecrease in aoc2024.executor": "Debug",
     "Go Test.go test aoc2024.executor": "Run",
+    "Go Test.go test aoc2024/day2.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "day3",
     "go.import.settings.migrated": "true",
     "last_opened_file_path": "/Users/hibri",
     "node.js.detected.package.eslint": "true",
@@ -60,8 +66,12 @@
     <key name="GoMoveDeclarationDialog.RECENT_KEY">
       <recent name="$PROJECT_DIR$" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/day1" />
+      <recent name="$PROJECT_DIR$/day2" />
+    </key>
   </component>
-  <component name="RunManager" selected="Go Test.go test aoc2024">
+  <component name="RunManager" selected="Go Test.go test aoc2024/day2">
     <configuration name="TestReadDay2InputWithDampningFromFile in aoc2024" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="aoc2024" />
       <working_directory value="$PROJECT_DIR$" />
@@ -71,17 +81,6 @@
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
       <pattern value="^\QTestReadDay2InputWithDampningFromFile\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestShouldBeSafeWhenAnyLevelIsRemoved in aoc2024" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="aoc2024" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="aoc2024" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestShouldBeSafeWhenAnyLevelIsRemoved\E$" />
       <method v="2" />
     </configuration>
     <configuration name="TestShouldBeSafeWhenSecondLevelsRemoved in aoc2024" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -116,13 +115,24 @@
       <framework value="gotest" />
       <method v="2" />
     </configuration>
+    <configuration name="go test aoc2024/day2" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="aoc2024" />
+      <working_directory value="$PROJECT_DIR$/day2" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="aoc2024/day2" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.go test aoc2024/day2" />
         <item itemvalue="Go Test.go test aoc2024" />
         <item itemvalue="Go Test.TestReadDay2InputWithDampningFromFile in aoc2024" />
         <item itemvalue="Go Test.TestShouldBeSafeWhenThirdLevelIsRemoved in aoc2024" />
         <item itemvalue="Go Test.TestShouldBeSafeWhenSecondLevelsRemoved in aoc2024" />
-        <item itemvalue="Go Test.TestShouldBeSafeWhenAnyLevelIsRemoved in aoc2024" />
       </list>
     </recent_temporary>
   </component>
@@ -150,7 +160,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="fix test" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix test" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -159,14 +170,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/day2_test.go</url>
-          <line>189</line>
+          <url>file://$PROJECT_DIR$/day2/day2_test.go</url>
+          <line>190</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/day2.go</url>
-          <line>104</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
