@@ -102,17 +102,9 @@ func ReCheckReport(report []int) ([]int, bool) {
 
 	var isSafe bool
 	for i := 0; i < len(report); i++ {
-		var subset []int
-		if i == 0 {
-			subset = report[i+1 : len(report)]
-		} else if i == len(report) {
-			subset = report[0 : len(report)-1]
-		} else {
-			subset = slices.Concat(report[0:i], report[i+1:len(report)])
-		}
+		subset := getSubsetOfReport(report, i)
 		changes := getChanges(subset)
 		allChangesAreWithinSafeLimits := areAllChangesWithinSafeLimits(changes)
-		//numberOfUnsafeLevels := countUnsafeLevels(changes)
 		hasIncreasingChanges := hasIncreasingChanges(changes)
 		decreasingChanges := hasDecreasingChanges(changes)
 
@@ -122,4 +114,16 @@ func ReCheckReport(report []int) ([]int, bool) {
 		}
 	}
 	return report, isSafe
+}
+
+func getSubsetOfReport(report []int, i int) []int {
+	var subset []int
+	if i == 0 {
+		subset = report[i+1:]
+	} else if i == len(report) {
+		subset = report[0 : len(report)-1]
+	} else {
+		subset = slices.Concat(report[0:i], report[i+1:])
+	}
+	return subset
 }
