@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61dd0f1d-2350-4bb9-a7d4-53b826b253ff" name="Changes" comment="fix test">
-      <change beforePath="$PROJECT_DIR$/day1.go" beforeDir="false" afterPath="$PROJECT_DIR$/day1/day1.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day1_input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/day1/day1_input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day1_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/day1/day1_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day2.go" beforeDir="false" afterPath="$PROJECT_DIR$/day2/day2.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day2_input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/day2/day2_input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day2_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/day2/day2_test.go" afterDir="false" />
+    <list default="true" id="61dd0f1d-2350-4bb9-a7d4-53b826b253ff" name="Changes" comment="organise code">
+      <change afterPath="$PROJECT_DIR$/day3/day3_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +34,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "Go Test.TestCanExtractNumbersFromASequencesInASimpleString in aoc2024/day3.executor": "Run",
+    "Go Test.TestCanExtractSequencesInASimpleString in aoc2024/day3.executor": "Run",
+    "Go Test.TestCanFindAMulSequenceInASimpleString in aoc2024/day3.executor": "Debug",
+    "Go Test.TestCanMultiplyNUmbersFromASequencesInASimpleString in aoc2024/day3.executor": "Run",
     "Go Test.TestReadDay2InputFromFile in aoc2024.executor": "Run",
     "Go Test.TestReadDay2InputWithDampningFromFile in aoc2024.executor": "Run",
     "Go Test.TestShouldBeSafeWhenAnyLevelIsRemoved in aoc2024.executor": "Debug",
@@ -46,8 +47,11 @@
     "Go Test.TestShouldBeUnSafeWhenAnyLevelIsRemoved in aoc2024.executor": "Run",
     "Go Test.TestShouldBeUnSafeWhenLevelsDecreasingForAReportLineByMoreThan3 in aoc2024.executor": "Debug",
     "Go Test.TestShouldBeUnSafeWhenLevelsIncreaseAndDecrease in aoc2024.executor": "Debug",
+    "Go Test.TestShouldSumMultiplicationResults in aoc2024/day3.executor": "Run",
+    "Go Test.TestShouldSumResultsWithDay3Input in aoc2024/day3.executor": "Run",
     "Go Test.go test aoc2024.executor": "Run",
     "Go Test.go test aoc2024/day2.executor": "Run",
+    "Go Test.go test aoc2024/day3.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
@@ -59,7 +63,7 @@
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General"
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -71,56 +75,61 @@
       <recent name="$PROJECT_DIR$/day2" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.go test aoc2024/day2">
-    <configuration name="TestReadDay2InputWithDampningFromFile in aoc2024" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestShouldSumResultsWithDay3Input in aoc2024/day3">
+    <configuration name="TestCanExtractNumbersFromASequencesInASimpleString in aoc2024/day3" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="aoc2024" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="aoc2024" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestReadDay2InputWithDampningFromFile\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestShouldBeSafeWhenSecondLevelsRemoved in aoc2024" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="aoc2024" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="aoc2024" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestShouldBeSafeWhenSecondLevelsRemoved\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestShouldBeSafeWhenThirdLevelIsRemoved in aoc2024" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="aoc2024" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="aoc2024" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestShouldBeSafeWhenThirdLevelIsRemoved\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go test aoc2024" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="aoc2024" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="aoc2024" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go test aoc2024/day2" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="aoc2024" />
-      <working_directory value="$PROJECT_DIR$/day2" />
+      <working_directory value="$PROJECT_DIR$/day3" />
       <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="aoc2024/day2" />
+      <package value="aoc2024/day3" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestCanExtractNumbersFromASequencesInASimpleString\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestCanMultiplyNUmbersFromASequencesInASimpleString in aoc2024/day3" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="aoc2024" />
+      <working_directory value="$PROJECT_DIR$/day3" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="aoc2024/day3" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestCanMultiplyNUmbersFromASequencesInASimpleString\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestShouldSumMultiplicationResults in aoc2024/day3" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="aoc2024" />
+      <working_directory value="$PROJECT_DIR$/day3" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="aoc2024/day3" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestShouldSumMultiplicationResults\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestShouldSumResultsWithDay3Input in aoc2024/day3" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="aoc2024" />
+      <working_directory value="$PROJECT_DIR$/day3" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="aoc2024/day3" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestShouldSumResultsWithDay3Input\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go test aoc2024/day3" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="aoc2024" />
+      <working_directory value="$PROJECT_DIR$/day3" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="aoc2024/day3" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
@@ -128,11 +137,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.go test aoc2024/day2" />
-        <item itemvalue="Go Test.go test aoc2024" />
-        <item itemvalue="Go Test.TestReadDay2InputWithDampningFromFile in aoc2024" />
-        <item itemvalue="Go Test.TestShouldBeSafeWhenThirdLevelIsRemoved in aoc2024" />
-        <item itemvalue="Go Test.TestShouldBeSafeWhenSecondLevelsRemoved in aoc2024" />
+        <item itemvalue="Go Test.TestShouldSumResultsWithDay3Input in aoc2024/day3" />
+        <item itemvalue="Go Test.TestShouldSumMultiplicationResults in aoc2024/day3" />
+        <item itemvalue="Go Test.go test aoc2024/day3" />
+        <item itemvalue="Go Test.TestCanMultiplyNUmbersFromASequencesInASimpleString in aoc2024/day3" />
+        <item itemvalue="Go Test.TestCanExtractNumbersFromASequencesInASimpleString in aoc2024/day3" />
       </list>
     </recent_temporary>
   </component>
@@ -161,7 +170,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix test" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix test" />
+    <MESSAGE value="organise code" />
+    <option name="LAST_COMMIT_MESSAGE" value="organise code" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
@@ -173,6 +183,11 @@
           <url>file://$PROJECT_DIR$/day2/day2_test.go</url>
           <line>190</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/day3/day3_test.go</url>
+          <line>97</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
